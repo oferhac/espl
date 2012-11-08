@@ -1,4 +1,0 @@
-include fgetname.c
-
-int main(int argc, char **argv) {
-	
