@@ -1,0 +1,20 @@
+include bclib.c
+ 
+int main (string s){
+int i = 0
+int j = int *bits [][]
+for(i;i<s.size(); i++){
+bc_char2bitsj[i][0];
+}
+int x;
+int t;
+for (x;x<j.length;j++) {
+for (t;t<j.length;t++)
+if j[x][t] = 0 printf('#')
+else printf (' ')
+
+}
+
+}
+
+
