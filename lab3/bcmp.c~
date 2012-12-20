@@ -40,7 +40,7 @@ int main(int argc, char **argv)
 	    if (f2==NULL) {fputs ("File error",stderr); exit (1);}
 	   
 	   
-	   
+	   int proc = fork();
 	   int lSize1=0;
 	   int lSize2=0;
 	   fseek (f1 , 0 , SEEK_END);
@@ -55,12 +55,13 @@ int main(int argc, char **argv)
 	   fread(buffer1, 1, 1, f1);
 	   fread(buffer2, 1, 1, f2); 
 	    int i=0;
+	    if (proc==0){
       for (i=0 ; i<lSize2&&i<lSize1 ; i++){
 	if (buffer1[i]!=buffer2[i]){
 	  printf("byte %d %d %d\n",i, buffer1[i], buffer2[i]);
 	
 	}
-	
+      }
       }
 
     return 0;

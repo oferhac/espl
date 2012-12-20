@@ -30,6 +30,8 @@ int main(int argc, char **argv)
 	    break;
 	}    
   } 
+proc = fork();
+ for (proc= fork(); proc<6; proc =
   FILE *f1;
   FILE *f2;
 	    file = argv[h+n+q+1];
@@ -38,7 +40,6 @@ int main(int argc, char **argv)
 	    if (f1==NULL) {fputs ("File error",stderr); exit (1);}
 	    f2 = fopen(argv[optind + 1] , "r");
 	    if (f2==NULL) {fputs ("File error",stderr); exit (1);}
-	   
 	   
 	   
 	   int lSize1=0;
@@ -50,6 +51,7 @@ int main(int argc, char **argv)
 	   lSize2 = ftell (f2);
 	   rewind (f2);
 	  
+	   
 	   buffer1 = (char*) malloc (sizeof(char)*lSize1);
 	   buffer2 = (char*) malloc (sizeof(char)*lSize2);
 	   fread(buffer1, 1, 1, f1);
@@ -60,8 +62,8 @@ int main(int argc, char **argv)
 	  printf("byte %d %d %d\n",i, buffer1[i], buffer2[i]);
 	
 	}
-	
       }
+      
 
     return 0;
 } 
