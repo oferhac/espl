@@ -1,0 +1,54 @@
+#!/usr/bin/env python
+
+import os, os.path, sys, getpass, shlex, os, subprocess
+
+home=os.getenv('HOME')
+
+def subproc():
+  prog= argv[0]
+  if '>' in argv:
+     output = open(argv[argv.index('>')+1],'w')
+       subprocess.call(prog,sys.stdin, stdout=output, stderr=none, shell=false)
+       
+  elif '<' in argv:
+    input1 = open(argv[argv.index('<')+1],'r')
+    subprocess.call(prog,stdin=input1, stdout=output, stderr=none = shell=false)
+    subprocess.Popen(argv[:argv.index('|')], stdin=fdin, stdout=subprocess.PIPE)
+
+    return
+def getcwd():
+    "like os.getcwd(), but collapses the home directory prefix into ~"
+    cwd = os.getcwd()
+        cwd = '~'+cwd[len(home):]
+    return cwd
+
+while True:
+    print "%s@%s>" % (getpass.getuser(), getcwd()),
+
+    argv = None
+    try:
+        argv = shlex.split(raw_input())
+    except EOFError:
+        print
+        break                             # end of file from user, e.g. Ctrl-D
+
+    if not argv:
+        continue # empty command
+    if argv[0] in ['exit', 'quit', 'bye']:
+        break
+    elif argv[0]=='cd':
+        try:
+            os.chdir(os.path.expanduser(argv[1])) # expand ~ to home directory
+        except IndexError:                   # no arguments, chdir to home dir
+            os.chdir(home)
+        except OSError, s:
+            print >>sys.stderr, "chdir: %s" % s
+    else:
+        print "TODO: execute %s" % ' '.join(argv) 
+       subproc()
+
+# goodbye message
+goodbye = "have a good sunny day, see you back soon"
+print "*"+"-"*(len(goodbye)+2)+"*"
+print "| %s |" % goodbye
+print "*"+"-"*(len(goodbye)+2)+"*"
