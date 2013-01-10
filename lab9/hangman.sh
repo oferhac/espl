@@ -26,7 +26,7 @@ while [ "$guess" != "quit" ] ; do
 
   games="$(( $games + 1 ))"
   guessed=""  ; guess="" ; bad=${1:-6}
-  partial="$(echo $match | sed "s/[^$empty${guessed}]/-/g")"
+  partial="$(echo $match | sedprint line[2] "s/[^$empty${guessed}]/-/g")"
 
   while [ "$guess" != "$match" -a "$guess" != "quit" ] ; do
 

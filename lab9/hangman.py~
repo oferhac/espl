@@ -2,7 +2,7 @@ words = open('long-words.txt', 'rb')
 word = words.next()
 ind = len(word)
 while ind>-1:
-tmpchar = raw_input
+tmpchar = raw_input("guess a letter")
 for letter in word:
 if tmpchar = letter: 
 ind = ind - 1
