@@ -11,7 +11,17 @@ Last name: <input onkeypress="val(event)" type="text" name="username" value="ofe
 suggeustios:
 </form>
 <hr>
+<script>
+function val(event)
+{
+if(event.keyCode<=57){
+alert("Dont use a number");
+var x=document.forms["myForm"]["fname"].value;
+return false;
+  }
+}
 
+</script>
 
 </div>
 <div id="a1" name="head" title="Example Div head">
@@ -38,14 +48,3 @@ suggeustios:
 
 
 
-<script>
-function val(event)
-{
-if(event.keyCode<=57){
-alert("Dont use a number");
-var x=document.forms["myForm"]["fname"].value;
-return false;
-  }
-}
-
-</script>
